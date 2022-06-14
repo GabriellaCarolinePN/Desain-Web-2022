@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<title>jQuery</title>
+
+	<link rel="stylesheet" type="text/css" href="jquery-ui.min.css">
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="jquery-ui.min.js"></script>
+
+</head>
+<body>
+	<center>
+		<h1>Penghitung Karakter</h1>
+		<br>
+		<textarea name="ulasan" id="ulasan" rows="4" cols="60"></textarea>
+		<br>
+		<h3>Jumlah Huruf : <span id="hitung">0</span></h3>
+		<div id="bar"></div>
+	</center>
+
+	<script type="text/javascript">
+        $(function(){
+            $("#ulasan").attr('maxlength','50');
+            $("#ulasan").keyup(function(){
+                var str = $('#ulasan').val();
+                $("#hitung").html(str.length);
+                $("#bar").progressbar('option', 'value', str.length);
+            });
+
+            $("#bar").progressbar({
+                value:0,
+                max:50
+            });
+        });
+    </script>
+</body>
+</html>
